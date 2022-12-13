@@ -28,6 +28,9 @@ public class Post extends Timestamped {
 
     @Column(nullable = false)
     private Long userId;
+    
+    @oneToMany(mappedBy = "post")
+    private final List<Comment> comments = new ArrayList<>
 
     public Post(PostRequestDto requestDto, Long userid, String username) {
         this.username = username;
